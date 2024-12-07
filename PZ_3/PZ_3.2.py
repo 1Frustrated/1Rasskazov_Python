@@ -9,8 +9,8 @@ try:
         print("Введите положительные числа")
 
     elif a < b + c and b < c + b and c < a + b:
-        print(f"Треугольник со сторонами {a } {b } {c } существует")
-    else: print(f"Треугольник со сторонами {a } {b } {c } не существует")
+        print("True")
+    else: print("False")
 
 except ValueError:
     print("Введите число")
