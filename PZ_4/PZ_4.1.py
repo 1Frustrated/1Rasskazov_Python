@@ -7,7 +7,7 @@ try:
         counter = 0
         numb = list(range(a + 1, b))
         for n in reversed(numb):
-            print(n)
+            print(n, end=" ")
             counter += 1
         print('Количество чисел: ', counter)
     else:
