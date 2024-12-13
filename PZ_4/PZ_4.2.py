@@ -12,7 +12,6 @@ try:
         s += k
         if s > n:
             break
-
 except ValueError:
     print("Введите число")
 
