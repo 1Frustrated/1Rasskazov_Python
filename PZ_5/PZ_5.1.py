@@ -6,9 +6,9 @@ def star(m):
         print("*" * i)
 
 try:
-    m = int(input("Ввести число *: "))
-    if m < 0:
+    sr = int(input("Ввести число *: "))
+    if sr < 0:
         print("Введи положительное число")
 except ValueError:
     print("Ввести число *")
-star(m)
+star(sr)
