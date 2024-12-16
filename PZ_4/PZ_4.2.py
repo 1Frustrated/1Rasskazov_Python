@@ -6,7 +6,6 @@ while True:
         n = int(input("Введите целое, положительное число: "))
         if n <= 0:
             print("Введите положительное число.")
-            continue
         else:
             s = 0
             k = 0
