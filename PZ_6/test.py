@@ -1,16 +1,25 @@
 import random
-def check(a):
+n = int(input("Введи длину списка"))
+
+spisok = []
+while len(spisok) < n:
+    spisok.append(random.randint(-100,100))
+if len(spisok) < 2:
+    print("Нет смысла")
+
+
+def check(spisok):
     f = None
-    for i in range(len(a)):
+    for i in range(len(spisok)):
         if f is None:
-            f = a[i] < 0
-        elif (a[i] > 0) == f:
+            f = spisok[i] < 0
+        elif (spisok[i] > 0) == f:
             f = not f
         else:
             return i + 1
     return 0
 
 
-a = [random.randint(-10, 10) for _ in range(10)]
-print(a)
-print(check(a))
+
+print(spisok)
+print(check(spisok))
