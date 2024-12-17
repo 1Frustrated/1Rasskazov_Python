@@ -9,7 +9,7 @@ while True:
         else:
             s = 0
             k = 0
-            while s + (k + 1) <= n:
+            while s + k <= n:
                 k += 1
                 s += k
             print("Сумма чисел равна: ", s)
