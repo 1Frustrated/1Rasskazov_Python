@@ -3,7 +3,7 @@
 #размер полученного списка B и его содержимое. Условный оператор не
 #использовать.
 import random
-N = int(input("Введите размер списка A (менее 15): "))
+N = int(input("Введите размер списка (менее 15): "))
 if N >= 15:
     print("Размер списка должен быть меньше 15.")
 else:
@@ -13,6 +13,6 @@ else:
         spisok.append(random.randint(-100,100))
         i += 1
     sec_spisok = spisok[1::2]
-    print("Сгенерированный список A:", spisok)
-    print("Размер списка B:", len(sec_spisok))
-    print("Содержимое списка B:", sec_spisok)
+    print("Сгенерированный первый список:", spisok)
+    print("Размер второго списка:", len(sec_spisok))
+    print("Содержимое второго списка:", sec_spisok)
