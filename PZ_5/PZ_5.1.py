@@ -4,8 +4,6 @@
 def star(a):
     for i in range(1, a + 1):
         print("*" * i)
-
-
 try:
     sr = int(input("Ввести число *: "))
     if sr < 0:
