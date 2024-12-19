@@ -14,5 +14,4 @@ while i < 5:
     ListAppend.append(value)
     i += 1
 for num in ListAppend:
-    inv_num = InvertDigits(num)
-    print(inv_num, end=' ')
+    print(InvertDigits(num), end=' ')
