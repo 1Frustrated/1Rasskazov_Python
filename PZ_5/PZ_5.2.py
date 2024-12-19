@@ -3,8 +3,12 @@
 # одновременно входным и выходным). С помощью этой функции поменять порядок
 # следования цифр на обратный для каждого из пяти данных целых чисел.
 def InvertDigits(K):
-    K = str(K)[::-1]
-    return K
+    inv_num = 0
+    while K > 0:
+        last_num = K % 10
+        inv_num = inv_num * 10 + last_num
+        K //= 10
+    return inv_num
 
 
 ListAppend = []
