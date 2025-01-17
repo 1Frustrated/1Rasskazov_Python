@@ -2,16 +2,17 @@
 # положительные и отрицательные числа. Если чередуются, то вывести 0, если нет, то
 # вывести порядковый номер первого элемента, нарушающего закономерность.
 import random
-n = int(input("Введи длину списка"))
+n = int(input("Введи длину списка: "))
 
 spisok = []
-while len(spisok) < n:
+i = 0
+while i < n:
     spisok.append(random.randint(-100,100))
-if len(spisok) < 2:
-    print("Нет смысла")
-
-for pereb in spisok:
-
-
-
-
+    i += 1
+for i in range(1, len(spisok)):
+    if (spisok[i] > 0 and spisok[i - 1] > 0) or (spisok[i] < 0 and spisok[i - 1] < 0):
+        print(f"Номер {i + 1} элемент {spisok[i]} не соответствует чередованию.")
+        break
+else:
+    print(0)
+print(spisok)
