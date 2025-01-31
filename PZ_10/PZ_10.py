@@ -14,15 +14,15 @@ domknig = {"Толстой", "Грибоедов", "Чехов", "Пушкин"}
 bookmarket = {"Пушкин", "Достоевский", "Маяковский"}
 gallery = {"Чехов", "Тютчев", "Пушкин"}
 
-#1. Полный список всех книг магазинов.
+# 1.Полный список всех книг магазинов.
 
-print(f"Полнвй список книг: {magistr | domknig | bookmarket | gallery}")
+print(f"Полный список книг: {magistr | domknig | bookmarket | gallery}")
 
-#2. Какие книги есть во всех магазинах.
+# 2.Какие книги есть во всех магазинах.
 
 print(f"Книги во всех магазинах: {magistr & domknig & bookmarket & gallery}")
 
-#3. Хотя бы одну книгу, которая есть не во всех магазинах.
+# 3.Хотя бы одну книгу, которая есть не во всех магазинах.
 
-print(f"Книги, которые есть не во всех магазинах: {(magistr | domknig | bookmarket | gallery) - (magistr & domknig & bookmarket & gallery)}" )
+print(f"Книги, которые есть не во всех магазинах: {(magistr | domknig | bookmarket | gallery) - (magistr & domknig & bookmarket & gallery)}")
 
