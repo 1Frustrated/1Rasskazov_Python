@@ -22,3 +22,7 @@ print(f"Полнвй список книг: {magistr | domknig | bookmarket | ga
 
 print(f"Книги во всех магазинах: {magistr & domknig & bookmarket & gallery}")
 
+#3. Хотя бы одну книгу, которая есть не во всех магазинах.
+
+print(f"Книги, которые есть не во всех магазинах: {(magistr | domknig | bookmarket | gallery) - (magistr & domknig & bookmarket & gallery)}" )
+
