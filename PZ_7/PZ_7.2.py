@@ -3,7 +3,7 @@
 try:
     S = input("Введите строку ")
     S0 = input("Введите подстроку для удаления: ")
-    result = S.replace(S0, " ")
+    result = S.replace(S0, "")
     if result == S:
         print("Совпадающих подстрок нет. Строка без изменений:")
     else:
