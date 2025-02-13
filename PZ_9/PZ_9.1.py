@@ -7,5 +7,5 @@ d1 = dict(Jan=-16, Feb=-10, March=-6, Apr=4, May=20, Jun=32, Jul=36, Aug=32, Sep
 val = d1.values()
 minimum = min(val)
 sum1 = sum(val)
-sred = sum1 // 12
+sred = sum1 / 12
 print(f"Средняя температура: {sred}, минимальная температура: {minimum}")

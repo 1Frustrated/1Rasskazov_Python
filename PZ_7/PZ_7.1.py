@@ -11,7 +11,7 @@ try:
     elif len(s2) < n2:
         print("Длинна строки должна быть равна или больше числа")
     else:
-        new_str = s1[:n1] + s2[n2:]
+        new_str = s1[:n1] + s2[-n2:]
         print(new_str)
 except ValueError:
     print("Неправильно ввели")
