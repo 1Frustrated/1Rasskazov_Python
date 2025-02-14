@@ -3,9 +3,12 @@
 # словарь, с использованием функции найти среднюю и минимальные температуры,
 # результаты вывести на экран.
 
-d1 = dict(Jan=-16, Feb=-10, March=-6, Apr=4, May=20, Jun=32, Jul=36, Aug=32, Sep=32, Oct=15, Nov=1, Dec=-15)
+d1 = {}
+str1 = '2020год -16 -10 -6 4 20 32 36 32 32 15 1 -15'
+str1 = str1.split()
+# d1 = dict(Jan=-16, Feb=-10, March=-6, Apr=4, May=20, Jun=32, Jul=36, Aug=32, Sep=32, Oct=15, Nov=1, Dec=-15)
+d1['Градусы'] = str1[1:]
 val = d1.values()
 minimum = min(val)
-sum1 = sum(val)
-sred = sum1 / 12
-print(f"Средняя температура: {sred}, минимальная температура: {minimum}")
+
+print(f"Средняя температура: , минимальная температура: {minimum}")
