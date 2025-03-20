@@ -6,8 +6,8 @@ while True:
         b = int(input("Введите целое число Б: "))
 
         if a < b:
-            counter = 0
             numb = list(range(a + 1, b))
+            counter = 0
             for n in reversed(numb):
                 print(n, end=" ")
                 counter += 1
