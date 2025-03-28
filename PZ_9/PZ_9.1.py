@@ -2,10 +2,20 @@
 # средние температуры по месяцам в году. Преобразовать информацию из строки в
 # словарь, с использованием функции найти среднюю и минимальные температуры,
 # результаты вывести на экран.
-
+str1 = "2020год -16 -10 -6 4 20 32 36 32 32 15 1 -15"
 d1 = {}
-str1 = '2020год -16 -10 -6 4 20 32 36 32 32 15 1 -15'
-str1 = str1.split()
-# d1 = dict(Jan=-16, Feb=-10, March=-6, Apr=4, May=20, Jun=32, Jul=36, Aug=32, Sep=32, Oct=15, Nov=1, Dec=-15)
-for i in str1:
+spl = str1.split()
+del spl[0]
+d1["temperature"] = []
+for value in spl:
+    d1["temperature"].append(int(value))
+z = d1["temperature"]
+minimum = min(z)
+sred = sum(z)/12
+print(minimum, sred)
+
+
+
+
+
 
