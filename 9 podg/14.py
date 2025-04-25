@@ -1,7 +1,5 @@
-d = {'a': 1, 'b': 2, 'h': 5, 'c': 3}
+d = {'a': 1, 'b': 2, 'h': 5, 'c': 6}
 s = sorted(d)
 print(s)
-s1 = d.values()
-for w in s:
-    if d[w] >= 1:
-        print(f"{w}: {d[w]}")
+ц = sorted(d.items(), key=lambda x: x[1])
+print(ц)
