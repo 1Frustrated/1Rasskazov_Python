@@ -45,3 +45,53 @@ s2 = content2.split()
 num2 = []
 for p in s2:
     num2.append(int(p))
+
+#Элементы 1 и 2 файлов:
+all_s = num1 + num2
+all_str= " ".join(map(str,all_s))
+print(all_s)
+
+#Элементы первого файла, отсутствующие во втором:
+perv1 = set(num1) - set(num2)
+perv1 = " ".join(map(str,perv1))
+print(perv1)
+
+#Элементы второго файла, отсутствующие в первом:
+perv2 = set(num2) - set(num1)
+perv2 = " ".join(map(str,perv2))
+print(perv2)
+
+#Количество элементов:
+kol_vo = len(all_s)
+kol_vo = str(kol_vo)
+
+#Индекс первого минимального элемента:
+min_element = all_s[0]
+index_min = 0
+for i, num in enumerate(all_s):
+    if num < min_element:
+        min_element = num
+        index_min = i
+index_min = str(index_min)
+print(index_min)
+
+#Индекс последнего максимального элемента:
+max_element = all_s[0]
+index_max = 0
+for i, num in enumerate(all_s):
+    if num > max_element:
+        max_element = num
+        index_max = i
+    elif num == max_element:
+        index_max = i
+index_max = str(index_max)
+print(index_max)
+
+with open('final.txt', 'w', encoding='utf-8') as final:
+    final.write('Элементы 1 и 2 файлов:' + all_str + '\n')
+    final.write('Элементы первого файла, отсутствующие во втором:' + perv1 + '\n')
+    final.write('Элементы второго файла, отсутствующие в первом:' + perv2 + '\n')
+    final.write('Количество элементов:' + kol_vo + '\n')
+    final.write('Индекс первого минимального элемента:' + index_min + '\n')
+    final.write('Индекс последнего максимального элемента:' + index_max + '\n')
+final.close()
