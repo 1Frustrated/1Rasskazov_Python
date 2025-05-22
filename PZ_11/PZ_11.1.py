@@ -88,7 +88,7 @@ index_max = str(index_max)
 print(index_max)
 
 with open('final.txt', 'w', encoding='utf-8') as final:
-    final.write('Элементы 1 и 2 файлов.:' + all_str + '\n')
+    final.write('Элементы 1 и 2 файлов:' + all_str + '\n')
     final.write('Элементы первого файла, отсутствующие во втором:' + perv1 + '\n')
     final.write('Элементы второго файла, отсутствующие в первом:' + perv2 + '\n')
     final.write('Количество элементов:' + kol_vo + '\n')
