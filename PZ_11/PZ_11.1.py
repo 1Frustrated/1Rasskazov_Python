@@ -78,33 +78,42 @@ kol_vo = len(all_s)
 kol_vo = str(kol_vo)
 
 #Индекс первого минимального элемента:
-min_index = -1
-for i in range(len(all_s)):
-    if all_s[i] < all_s[i - 1] or all_s[i] < all_s[i + 1]:
-        min_index = i
-        break
-    elif i == 0:
-        if all_s[i] < all_s[i + 1]:
-            min_index = i
-            break
-#Индекс последнего максимального элемента:
-max_index = -1
-for i in range(len(all_s)):
-    if i > 0 and i < len(all_s) - 1:
-        if all_s[i] > all_s[i - 1] or all_s[i] > all_s[i + 1]:
-            max_index = i
-    elif i == len(all_s) - 1:
-        if all_s[i] > all_s[i - 1]:
-            max_index = i
+min_value = min(all_s)
+first_min_index = all_s.index(min_value)
+first_min_index = str(first_min_index)
 
-min_index = str(min_index)
-max_index = str(max_index)
+
+# min_index = -1
+# for i in range(len(all_s)):
+#     if all_s[i] < all_s[i - 1] or all_s[i] < all_s[i + 1]:
+#         min_index = i
+#         break
+#     elif i == 0:
+#         if all_s[i] < all_s[i + 1]:
+#             min_index = i
+#             break
+#Индекс последнего максимального элемента:
+max_value = max(all_s)
+first_max_index = all_s.index(max_value)
+first_max_index = str(first_max_index)
+
+# max_index = -1
+# for i in range(len(all_s)):
+#     if i > 0 and i < len(all_s) - 1:
+#         if all_s[i] > all_s[i - 1] or all_s[i] > all_s[i + 1]:
+#             max_index = i
+#     elif i == len(all_s) - 1:
+#         if all_s[i] > all_s[i - 1]:
+#             max_index = i
+
+
+
 
 with open('final.txt', 'w', encoding='utf-8') as final:
     final.write('Элементы 1 и 2 файлов:' + all_str + '\n')
     final.write('Элементы первого файла, отсутствующие во втором:' + perv1 + '\n')
     final.write('Элементы второго файла, отсутствующие в первом:' + perv2 + '\n')
     final.write('Количество элементов:' + kol_vo + '\n')
-    final.write('Индекс первого минимального элемента:' + min_index + '\n')
-    final.write('Индекс последнего максимального элемента:' + max_index + '\n')
+    final.write('Индекс первого минимального элемента:' + first_min_index + '\n')
+    final.write('Индекс последнего максимального элемента:' + first_max_index + '\n')
 final.close()
