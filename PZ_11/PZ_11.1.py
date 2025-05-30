@@ -9,23 +9,24 @@
 # Индекс первого минимального элемента:
 # Индекс последнего максимального элемента:
 
-
+# файл 1 с положительными и отрицательными числами
 import random
 
 forf1 = []
-c = 0
-
-while c < 20:
+c = random.randint(3,10)
+print(c)
+for i in range(c):
     n = random.randint(-100, 100)
     forf1.append(n)
-    c += 1
+    i += 1
 sforf1 = " ".join(map(str, forf1))
+print(sforf1)
 
 
 f1 = open('file1.txt', 'w+')
 f1.write(sforf1)
 f1.close()
-###################################################################################
+# файл 2 с положительными и отрицательными числами
 forf2 = []
 c2 = 0
 
@@ -39,8 +40,8 @@ sforf2 = " ".join(map(str,forf2))
 f2 = open('file2.txt', 'w+')
 f2.write(sforf2)
 f2.close()
-###################################################################################
 
+# списки num1 и num2 с эл-тами:
 
 f1 = open('file1.txt', 'r')
 content1 = f1.read()
@@ -62,12 +63,9 @@ for p in s2:
 all_s = num1 + num2
 all_str = " ".join(map(str, all_s))
 
-
-
 #Элементы первого файла, отсутствующие во втором:
 perv1 = set(num1) - set(num2)
 perv1 = " ".join(map(str, perv1))
-
 
 #Элементы второго файла, отсутствующие в первом:
 perv2 = set(num2) - set(num1)
@@ -78,35 +76,12 @@ kol_vo = len(all_s)
 kol_vo = str(kol_vo)
 
 #Индекс первого минимального элемента:
-min_value = min(all_s)
-first_min_index = all_s.index(min_value)
-first_min_index = str(first_min_index)
+first_min = min(all_s[:2])
+first_min_index = str(all_s.index(first_min))
 
-
-# min_index = -1
-# for i in range(len(all_s)):
-#     if all_s[i] < all_s[i - 1] or all_s[i] < all_s[i + 1]:
-#         min_index = i
-#         break
-#     elif i == 0:
-#         if all_s[i] < all_s[i + 1]:
-#             min_index = i
-#             break
 #Индекс последнего максимального элемента:
-max_value = max(all_s)
-first_max_index = all_s.index(max_value)
-first_max_index = str(first_max_index)
-
-# max_index = -1
-# for i in range(len(all_s)):
-#     if i > 0 and i < len(all_s) - 1:
-#         if all_s[i] > all_s[i - 1] or all_s[i] > all_s[i + 1]:
-#             max_index = i
-#     elif i == len(all_s) - 1:
-#         if all_s[i] > all_s[i - 1]:
-#             max_index = i
-
-
+last_max = max(all_s[-2:])
+last_max_index = str(all_s.index(last_max))
 
 
 with open('final.txt', 'w', encoding='utf-8') as final:
@@ -115,5 +90,5 @@ with open('final.txt', 'w', encoding='utf-8') as final:
     final.write('Элементы второго файла, отсутствующие в первом:' + perv2 + '\n')
     final.write('Количество элементов:' + kol_vo + '\n')
     final.write('Индекс первого минимального элемента:' + first_min_index + '\n')
-    final.write('Индекс последнего максимального элемента:' + first_max_index + '\n')
+    final.write('Индекс последнего максимального элемента:' + last_max_index + '\n')
 final.close()
