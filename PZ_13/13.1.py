@@ -11,7 +11,7 @@ print(sps)
 el = [print(e) for e in sps]
 pe = [num for el in sps for num in el if num > 0]
 print(pe)
-print(len(pe))
+
 summa = sum(pe)
-print(summa)
+
 print(summa // len(pe))

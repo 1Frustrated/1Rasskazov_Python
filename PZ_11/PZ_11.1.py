@@ -86,4 +86,3 @@ with open('final.txt', 'w', encoding='utf-8') as final:
     final.write('Количество элементов:' + kol_vo + '\n')
     final.write('Индекс первого минимального элемента:' + first_min_index + '\n')
     final.write('Индекс последнего максимального элемента:' + last_max_index + '\n')
-final.close()
