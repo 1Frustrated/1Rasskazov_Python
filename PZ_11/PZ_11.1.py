@@ -14,28 +14,23 @@ import random
 
 forf1 = []
 c = random.randint(3,10)
-print(c)
 for i in range(c):
     n = random.randint(-100, 100)
     forf1.append(n)
     i += 1
 sforf1 = " ".join(map(str, forf1))
-print(sforf1)
-
 
 f1 = open('file1.txt', 'w+')
 f1.write(sforf1)
 f1.close()
+
 # файл 2 с положительными и отрицательными числами
 forf2 = []
-c2 = 0
-
-while c2 < 20:
+for v in range(c):
     n = random.randint(-100, 100)
     forf2.append(n)
-    c2 += 1
+    v += 1
 sforf2 = " ".join(map(str,forf2))
-
 
 f2 = open('file2.txt', 'w+')
 f2.write(sforf2)
