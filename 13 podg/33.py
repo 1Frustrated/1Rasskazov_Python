@@ -28,7 +28,7 @@ while True:
         print("Введите целое число.")
 column_elements = [row[N] for row in hueta]
 sum_column = sum(column_elements)
-
+print(column_elements)
 product_column = 1
 for val in column_elements:
     product_column *= val
