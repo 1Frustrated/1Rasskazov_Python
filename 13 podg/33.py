@@ -1,9 +1,8 @@
 # 1. Из матрицы сформировать массив из положительных четных элементов, найти их
 # сумму и среднее арифметическое.
-# 2. В двумерном списке найти сумму и произведение элементов столбца N (N задать с
-# клавиатуры).
+
 import random
-# 111111
+
 kol_kvsk = random.randint(3,5)
 el_in_kol = random.randint(4,6)
 
@@ -16,7 +15,8 @@ print("\nПоложительные четные элементы:", positive_ev
 
 print(sum(positive_even)//len(positive_even))
 
-#22222222222222
+# 2. В двумерном списке найти сумму и произведение элементов столбца N (N задать с
+# клавиатуры).
 while True:
     try:
         N = int(input(f"\nВведите номер столбца (от 0 до {el_in_kol - 1}): "))
@@ -28,7 +28,7 @@ while True:
         print("Введите целое число.")
 column_elements = [row[N] for row in hueta]
 sum_column = sum(column_elements)
-
+print(column_elements)
 product_column = 1
 for val in column_elements:
     product_column *= val
