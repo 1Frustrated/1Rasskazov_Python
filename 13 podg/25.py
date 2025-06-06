@@ -7,7 +7,7 @@ qwe = [[random.randint(-100,100) for el in range(el_in_kol)] for w in range(kol_
 print(qwe)
 
 flat_list = [el for row in qwe for el in row]
-
+print(flat_list)
 start_index = len(flat_list) // 2
 
 second_half_elements = flat_list[start_index:]
@@ -19,5 +19,6 @@ print(total_sum)
 
 # 2. В двумерном списке элементы второго столбца возвести в квадрат.
 
-qwe[1] = [el ** 2 for el in qwe[1]]
+for i in qwe:
+    i[1] *= 2
 print(qwe)

@@ -16,8 +16,6 @@ while True:
     except IndexError:
         print("LL")
 
-
-
 # 2. В двумерном списке найти минимальный и максимальные элементы.
 
 ww3 = min([el for w in qwe for el in w])

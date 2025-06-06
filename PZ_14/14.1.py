@@ -8,11 +8,8 @@ import re
 with open('Dostoevsky.txt', 'r', encoding='utf-8') as file:
     text = file.read()
 
-# Используем регулярное выражение для поиска различных форм фамилии
-# Например: Достоевский, Достоевского, Достоевскому и т.д.
 pattern = r'Достоевск[а-я]+'
 matches = set(re.findall(pattern, text, re.IGNORECASE))
 
-# Выводим найденные варианты фамилии
 for match in matches:
     print(match)

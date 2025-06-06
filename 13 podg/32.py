@@ -2,7 +2,8 @@
 # 1. Если в двумерном списке имеются положительные элементы, то вывести TRUE,
 # иначе FALSE.
 
-
+from functools import reduce
+import operator
 import random
 
 kol_str = random.randint(3, 6)
@@ -33,8 +34,6 @@ while True:
 row_elements = hueta[n]
 sum_row = sum(row_elements)
 
-product_row = 1
-for val in row_elements:
-    product_row *= val
+product_row = reduce(operator.mul, row_elements, 1)
 
 print(product_row)

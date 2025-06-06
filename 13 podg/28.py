@@ -14,7 +14,6 @@ print(qwe)
 # В двумерном списке элементы столбца N (N задать с клавиатуры) увеличить в два
 # раза
 
-
 while True:
     try:
         N = int(input(f"\nВведите номер столбца (от 0 до {el_in_kol - 1}): "))
@@ -25,7 +24,8 @@ while True:
     except ValueError:
         print("Введите целое число.")
 
-column_elements = [row[N] for row in qwe]
-product_column = 1
-for val in column_elements:
-    product_column *= val
+# Увеличиваем элементы столбца N в два раза
+for row in qwe:
+    row[N] *= 2
+
+print(qwe)
