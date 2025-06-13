@@ -4,11 +4,9 @@
 # ФИО мастера, вид изделия, материал, стоимость работ
 import sqlite3
 
-# Создаём (или подключаемся к) базу данных
 conn = sqlite3.connect('jewelry_workshop.db')
 cursor = conn.cursor()
 
-# Создаём таблицу Изделие, если её ещё нет
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS Izdelie (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -62,9 +60,7 @@ def main():
             print("Неверный выбор, попробуйте снова.")
 
 
-if __name__ == '__main__':
-    main()
+main()
 
-# Закрываем соединение с БД при выходе
 conn.close()
 
