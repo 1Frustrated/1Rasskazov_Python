@@ -5,15 +5,15 @@ class Circle:
         self.radius = radius
 
     def area(self):
-        "Вычисление площади круга"
+        "площадь"
         return self.PI * (self.radius ** 2)
 
     def circumference(self):
-        "Вычисление длины окружности"
+        "длина"
         return 2 * self.PI * self.radius
 
     def diameter(self):
-        "Вычисление диаметра круга"
+        "диаметр"
         return 2 * self.radius
 
 

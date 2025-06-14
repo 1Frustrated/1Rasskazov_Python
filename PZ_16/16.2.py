@@ -13,7 +13,7 @@ class Man(Person):
         Person.__init__(self, name, age, gender="Мужчина")
 
     def show_gender(self):
-        print("Пол объекта: Мужчина")
+        print("Пол: Мужчина")
 
 
 class Woman(Person):
@@ -21,7 +21,7 @@ class Woman(Person):
         Person.__init__(self, name, age, gender="Женщина")
 
     def show_gender(self):
-        print("Пол объекта: Женщина")
+        print("Пол: Женщина")
 
 
 # ввод данных с клавиатуры
@@ -36,7 +36,7 @@ if gender_input == 'м':
 elif gender_input == 'ж':
     person = Woman(name, age)
 else:
-    print("Некорректный ввод пола, создаём объект базового класса Person.")
+    print("Некорректный ввод")
     person = Person(name, age, gender="Не указан")
 
 # вывод информации
