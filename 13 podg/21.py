@@ -9,7 +9,7 @@ qwe = [[random.randint(-100,100) for el in range(el_in_kol)] for w in range(kol_
 print(qwe)
 while True:
     try:
-        minim = min(row for row in qwe[2])
+        minim = min(row for row in qwe[-2])
         print(minim)
         break
     except IndexError:

@@ -2,24 +2,15 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 
 
-def attach_file(entry):
-    filename = filedialog.askopenfilename(
-        filetypes=[
-            ("Допустимые файлы", "*.zip *.rar *.txt *.doc *.jpg *.png *.gif *.odt *.xml"),
-            ("Все файлы", "*.*")
-        ]
-    )
-    if filename:
-        entry.delete(0, tk.END)
-        entry.insert(0, filename)
-
 def send_email():
-    messagebox.showinfo("Отправка", "Форма отправлена (заглушка).")
+    messagebox.showinfo("Отправка", "Форма отправлена")
+
 
 def clear_form():
     for e in [name_entry, email_entry, subject_entry, file1_entry, file2_entry, file3_entry]:
         e.delete(0, tk.END)
     message_text.delete("1.0", tk.END)
+
 
 root = tk.Tk()
 root.title("Форма заявки")
@@ -62,19 +53,19 @@ subject_entry.grid(row=3, column=1, sticky="we")
 tk.Label(frame, text="Прикрепить файл:", anchor="w").grid(row=4, column=0, sticky="w")
 file1_entry = tk.Entry(frame, width=25)
 file1_entry.grid(row=4, column=1, sticky="w")
-ttk.Button(frame, text="Обзор...", command=lambda: attach_file(file1_entry)).grid(row=4, column=2, sticky="w")
+ttk.Button(frame, text="Обзор...").grid(row=4, column=2, sticky="w")
 
 # Прикрепить файл 2
 tk.Label(frame, text="Прикрепить файл:", anchor="w").grid(row=5, column=0, sticky="w")
 file2_entry = tk.Entry(frame, width=25)
 file2_entry.grid(row=5, column=1, sticky="w")
-ttk.Button(frame, text="Обзор...", command=lambda: attach_file(file2_entry)).grid(row=5, column=2, sticky="w")
+ttk.Button(frame, text="Обзор...").grid(row=5, column=2, sticky="w")
 
 # Прикрепить файл 3
 tk.Label(frame, text="Прикрепить файл:", anchor="w").grid(row=6, column=0, sticky="w")
 file3_entry = tk.Entry(frame, width=25)
 file3_entry.grid(row=6, column=1, sticky="w")
-ttk.Button(frame, text="Обзор...", command=lambda: attach_file(file3_entry)).grid(row=6, column=2, sticky="w")
+ttk.Button(frame, text="Обзор...").grid(row=6, column=2, sticky="w")
 
 # Сообщение
 tk.Label(frame, text="Ваше сообщение:", anchor="w").grid(row=7, column=0, sticky="nw", pady=(8,0))

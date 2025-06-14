@@ -14,6 +14,10 @@ print(ww)
 
 # 2. В двумерном списке все элементы, не лежащие на главной диагонали увеличить в 2
 # раза. будет далее
+hueta2 = hueta
+
+ww1 = [[hueta[i][j] if i == j else hueta[i][j] * 2 for j in range(el_in_str)] for i in range(kol_str)]
+print(ww1)
 hueta2 = qwe
 
 ww1 = [[qwe[i][j] if i == j else qwe[i][j] * 2 for j in range(el_in_kol)] for i in range(kol_str)]
