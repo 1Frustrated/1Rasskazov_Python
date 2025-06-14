@@ -15,7 +15,7 @@ def calculate():
         output_text.delete("1.0", tk.END)
         output_text.insert(tk.END, " ".join(map(str, reversed_numbers)) + "\n")
         output_text.insert(tk.END, f"Количество чисел: {len(numbers)}")
-        result_text.set("")  # очистить сообщение об ошибке
+        result_text.set("")
     except ValueError:
         result_text.set("Ошибка: введите два целых числа")
 
