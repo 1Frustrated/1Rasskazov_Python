@@ -3,12 +3,12 @@ from tkinter import ttk
 from tkinter import *
 import re
 root = Tk()
-root.title("Игра Hangman")
+root.title("Игра Hangman на тему: Животные")
 root.geometry('500x500+700+300')
 
 # Список слов
 animals_word_list = ["кот", "собака", "осел", "козел", "лошадь", "свинья", "кролик", "трубкозуб", "альбатрос",
-    "аллигатор", "альпака", "амфибия", "анаконда", "удильщик", "муравей", "муравьед", "антилопа",
+    "аллигатор", "альпака", "амфибия", "анаконда", "удильщик", "муравьед", "антилопа",
     "лев", "тигр", "медведь", "волк", "лиса", "заяц", "олень", "кабан", "белка", "бегемот", "слон",
     "жираф", "обезьяна", "кенгуру", "енот", "барсук", "дельфин", "кит", "корова", "ёж", "орёл", "сова",
     "воробей", "голубь", "ворона", "фламинго", "пеликан", "пингвин", "аист", "соловей", "кукушка", "попугай",
@@ -46,7 +46,7 @@ message.pack()
 
 
 # Функция для обновления рисунка виселицы в зависимости от оставшихся попыток
-def update_hangman_display(tries_left):
+def update_hangman_display(tries):
     stages = [
         # 7 попыток - пусто (начальное состояние)
         "             \n"
@@ -105,7 +105,7 @@ def update_hangman_display(tries_left):
         "|     / \\    \n"
         "|             "
     ]
-    index = 7 - tries_left
+    index = 7 - tries
     if index >= len(stages):
         index = len(stages) - 1
     hangman_display.config(text=stages[index])
@@ -118,7 +118,7 @@ def update_display():
             display_word += letter + " "
         else:
             display_word += "_ "
-    word.config(text=display_word.strip())
+    word.config(text=display_word)
     tries_label.config(text=f"Осталось попыток: {tries}")
     update_hangman_display(tries)
 
@@ -127,7 +127,6 @@ def button_clicked():
     global tries
     guess = entry.get().lower()
     entry.delete(0, END)
-    message.config(text="")
 
     if len(guess) != 1:
         message.config(text="Введите одну букву.")
@@ -157,12 +156,12 @@ def button_clicked():
     update_display()
 
     if all(letter in guessed_letters for letter in word_letters):
-        message.config(text=f"Поздравляем! Вы угадали слово: {word_letters}")
+        message.config(text=f"Вы угадали слово: {word_letters}")
         guess_btn.config(state=DISABLED)
         entry.config(state=DISABLED)
 
     elif tries == 0:
-        message.config(text=f"Вы проиграли. Было загадано слово: {word_letters}")
+        message.config(text=f"Вы не угадали слово: {word_letters}")
         guess_btn.config(state=DISABLED)
         entry.config(state=DISABLED)
 
