@@ -18,12 +18,10 @@ class Circle:
 
 
 radius_input = input("Введите радиус круга: ")
-
 radius = float(radius_input)
-
 circle = Circle(radius)
 
 print(f"Радиус: {circle.radius}")
-print(f"Площадь: {circle.area():.2f}")
-print(f"Длина окружности: {circle.circumference():.2f}")
+print(f"Площадь: {circle.area()}")
+print(f"Длина окружности: {circle.circumference()}")
 print(f"Диаметр: {circle.diameter()}")

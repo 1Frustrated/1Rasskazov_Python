@@ -1,92 +1,95 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox
-
-class ApplicationForm(tk.Tk):
-    def setup_ui(self):
-        self.title("Форма заявки")
-        self.configure(bg="white")
-        self.geometry("520x480")
-        self.resizable(False, False)
-        self.files = ["", "", ""]
-
-        # Верхняя рамка с заголовком
-        tk.Label(self, text="Форма заявки", bg="#009878", fg="white",
-                 font=("Arial", 14, "bold"), height=2).pack(fill="x")
-
-        main_frame = tk.Frame(self, bd=2, relief="groove", bg="white")
-        main_frame.place(x=10, y=50, width=500, height=380)
-
-        info_text = (
-            "Допустимые типы вложений: zip, rar, txt, doc, jpg, png, gif, odt, xml\n"
-            "Макс. размер каждого файла: 1024kb.\n"
-            "Макс. общий размер файла: 2048kb."
-        )
-        tk.Label(main_frame, text=info_text, anchor="w", justify="left",
-                 bg="white", font=("Arial", 9, "bold")).place(x=10, y=5)
-
-        tk.Label(main_frame, text="Ваше имя:", bg="white", anchor="w").place(x=10, y=55)
-        self.name_entry = tk.Entry(main_frame, width=36)
-        self.name_entry.place(x=110, y=55)
-        tk.Label(main_frame, text="*", fg="red", bg="white").place(x=390, y=55)
-
-        tk.Label(main_frame, text="Ваш Email:", bg="white", anchor="w").place(x=10, y=80)
-        self.email_entry = tk.Entry(main_frame, width=36)
-        self.email_entry.place(x=110, y=80)
-        tk.Label(main_frame, text="*", fg="red", bg="white").place(x=390, y=80)
-
-        tk.Label(main_frame, text="Тема письма:", bg="white", anchor="w").place(x=10, y=105)
-        self.subject_entry = tk.Entry(main_frame, width=36)
-        self.subject_entry.place(x=110, y=105)
-
-        self.file_labels = []
-        for i in range(3):
-            tk.Label(main_frame, text=f"Прикрепить файл:", bg="white", anchor="w").place(x=10, y=135+25*i)
-            file_label = tk.Label(main_frame, text="", bg="white", anchor="w", width=25, relief="sunken", bd=1)
-            file_label.place(x=110, y=135+25*i)
-            self.file_labels.append(file_label)
-            tk.Button(main_frame, text="Обзор...", width=10,
-                      command=lambda idx=i: self.browse_file(idx)).place(x=340, y=135+25*i)
-
-        tk.Label(main_frame, text="Ваше сообщение:", bg="white", anchor="nw").place(x=10, y=210)
-        tk.Label(main_frame, text="*", fg="red", bg="white").place(x=390, y=210)
-        self.message_text = tk.Text(main_frame, width=56, height=7, wrap="word")
-        self.message_text.place(x=10, y=230)
-
-        tk.Button(main_frame, text="Отправить Email", width=18, bg="#e6f6f1",
-                  command=self.send_email).place(x=80, y=340)
-        tk.Button(main_frame, text="Очистить", width=18, bg="#e6f6f1",
-                  command=self.clear_form).place(x=260, y=340)
-
-    def browse_file(self, idx):
-        filename = filedialog.askopenfilename(
-            filetypes=[("Все файлы", "*.*"), ("Документы", "*.zip;*.rar;*.txt;*.doc;*.jpg;*.png;*.gif;*.odt;*.xml")])
-        if filename:
-            self.files[idx] = filename
-            self.file_labels[idx].config(text=filename.split("/")[-1])
-
-    def send_email(self):
-        if not self.name_entry.get().strip():
-            messagebox.showwarning("Ошибка", "Пожалуйста, введите имя.")
-            return
-        if not self.email_entry.get().strip():
-            messagebox.showwarning("Ошибка", "Пожалуйста, введите Email.")
-            return
-        if not self.message_text.get("1.0", "end").strip():
-            messagebox.showwarning("Ошибка", "Пожалуйста, введите сообщение.")
-            return
-        messagebox.showinfo("Успех", "Заявка отправлена (симуляция).")
-
-    def clear_form(self):
-        self.name_entry.delete(0, "end")
-        self.email_entry.delete(0, "end")
-        self.subject_entry.delete(0, "end")
-        for i in range(3):
-            self.files[i] = ""
-            self.file_labels[i].config(text="")
-        self.message_text.delete("1.0", "end")
+from tkinter import ttk, filedialog, messagebox
 
 
-if __name__ == "__main__":
-    app = ApplicationForm()
-    app.setup_ui()  # вызываем метод для создания интерфейса
-    app.mainloop()
+def attach_file(entry):
+    filename = filedialog.askopenfilename(
+        filetypes=[
+            ("Допустимые файлы", "*.zip *.rar *.txt *.doc *.jpg *.png *.gif *.odt *.xml"),
+            ("Все файлы", "*.*")
+        ]
+    )
+    if filename:
+        entry.delete(0, tk.END)
+        entry.insert(0, filename)
+
+def send_email():
+    messagebox.showinfo("Отправка", "Форма отправлена (заглушка).")
+
+def clear_form():
+    for e in [name_entry, email_entry, subject_entry, file1_entry, file2_entry, file3_entry]:
+        e.delete(0, tk.END)
+    message_text.delete("1.0", tk.END)
+
+root = tk.Tk()
+root.title("Форма заявки")
+root.geometry("530x460")
+root.resizable(False, False)
+
+# Верхняя рамка/заголовок
+header = tk.Label(root, text="Форма заявки", font=("Arial", 14, "bold"), bg="#0CA28B", fg="white", pady=5)
+header.pack(fill=tk.X)
+
+# Основная рамка
+frame = tk.Frame(root, bd=2, relief=tk.GROOVE, padx=8, pady=8)
+frame.pack(fill=tk.BOTH, expand=True)
+
+# Информация о вложениях
+info = tk.Label(frame, text="Допустимые типы вложений: zip, rar, txt, doc, jpg, png, gif, odt, xml\n"
+                            "Макс. размер каждого файла: 1024kb.\n"
+                            "Макс. общий размер файла: 2048kb.",
+                font=("Arial", 9, "bold"), anchor="w", justify="left")
+info.grid(row=0, column=0, columnspan=3, sticky="w", pady=(0, 10))
+
+# Имя
+tk.Label(frame, text="Ваше имя:", anchor="w").grid(row=1, column=0, sticky="w")
+name_entry = tk.Entry(frame, width=35)
+name_entry.grid(row=1, column=1, sticky="we")
+tk.Label(frame, text="*", fg="red").grid(row=1, column=2, sticky="w")
+
+# Email
+tk.Label(frame, text="Ваш Email:", anchor="w").grid(row=2, column=0, sticky="w")
+email_entry = tk.Entry(frame, width=35)
+email_entry.grid(row=2, column=1, sticky="we")
+tk.Label(frame, text="*", fg="red").grid(row=2, column=2, sticky="w")
+
+# Тема письма
+tk.Label(frame, text="Тема письма:", anchor="w").grid(row=3, column=0, sticky="w")
+subject_entry = tk.Entry(frame, width=35)
+subject_entry.grid(row=3, column=1, sticky="we")
+
+# Прикрепить файл 1
+tk.Label(frame, text="Прикрепить файл:", anchor="w").grid(row=4, column=0, sticky="w")
+file1_entry = tk.Entry(frame, width=25)
+file1_entry.grid(row=4, column=1, sticky="w")
+ttk.Button(frame, text="Обзор...", command=lambda: attach_file(file1_entry)).grid(row=4, column=2, sticky="w")
+
+# Прикрепить файл 2
+tk.Label(frame, text="Прикрепить файл:", anchor="w").grid(row=5, column=0, sticky="w")
+file2_entry = tk.Entry(frame, width=25)
+file2_entry.grid(row=5, column=1, sticky="w")
+ttk.Button(frame, text="Обзор...", command=lambda: attach_file(file2_entry)).grid(row=5, column=2, sticky="w")
+
+# Прикрепить файл 3
+tk.Label(frame, text="Прикрепить файл:", anchor="w").grid(row=6, column=0, sticky="w")
+file3_entry = tk.Entry(frame, width=25)
+file3_entry.grid(row=6, column=1, sticky="w")
+ttk.Button(frame, text="Обзор...", command=lambda: attach_file(file3_entry)).grid(row=6, column=2, sticky="w")
+
+# Сообщение
+tk.Label(frame, text="Ваше сообщение:", anchor="w").grid(row=7, column=0, sticky="nw", pady=(8,0))
+message_text = tk.Text(frame, width=45, height=6)
+message_text.grid(row=7, column=1, columnspan=2, sticky="we", pady=(8,0))
+tk.Label(frame, text="*", fg="red").grid(row=7, column=2, sticky="ne", pady=(8,0))
+
+# Кнопки
+btn_frame = tk.Frame(root, bg="#0CA28B")
+btn_frame.pack(fill=tk.X, pady=(5, 0))
+
+send_btn = ttk.Button(btn_frame, text="Отправить Email", command=send_email)
+send_btn.pack(side=tk.LEFT, padx=60, pady=6)
+
+clear_btn = ttk.Button(btn_frame, text="Очистить", command=clear_form)
+clear_btn.pack(side=tk.RIGHT, padx=60, pady=6)
+
+root.mainloop()
