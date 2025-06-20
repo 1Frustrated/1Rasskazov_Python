@@ -11,7 +11,7 @@ cur.execute('''create table if not exists lol(
 ''')
 conn.commit()
 
-cur.execute("insert into lol values (2, 'rweq', 'wer', 'wedr', 'rew')")
+cur.execute("insert into lol values (3, 'rweq', 'wer', 'wedr', 'rew')")
 conn.commit()
 
 cur.execute("select * from lol")

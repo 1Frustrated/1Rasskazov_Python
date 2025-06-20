@@ -30,13 +30,12 @@ info = [
     (10, "Лебедев Николай Викторович", "Кузнецов Алексей Сергеевич", "Браслет", "Титан", 16000)
 ]
 
-# Вставляем данные, указывая поля, включая id
+# Вставляем данные
 cursor.executemany(
     "INSERT OR IGNORE INTO izdelie (id, fio_klienta, fio_mastera, vid_izdeliya, material, stoimost_rabot) VALUES (?, ?, ?, ?, ?, ?)",
     info
 )
 conn.commit()
-
 print("Вывод всех записей:")
 cursor.execute("SELECT * FROM izdelie")
 for row in cursor.fetchall():
