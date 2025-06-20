@@ -32,7 +32,7 @@ tries_lft.pack()  # размещаем метку
 hangman = Label(root, text="", font=("Courier", 18), justify=CENTER)  # метка для отображения виселицы
 hangman.pack(pady=10)  # размещаем с отступом
 
-entry = Entry(root, font=("Bahnschrift", 18), width=3, justify="center")  # поле ввода для буквы
+entry = Entry(root, font=("Bahnschrift", 18), width=3, justify=CENTER)  # поле ввода для буквы
 entry.pack(pady=10)  # размещаем поле ввода
 entry.focus()  # устанавливаем фокус ввода на это поле
 
